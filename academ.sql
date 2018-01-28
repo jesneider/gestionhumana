@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2018 a las 20:29:21
+-- Tiempo de generación: 28-01-2018 a las 21:36:24
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -130,7 +130,8 @@ CREATE TABLE `gh_empleados` (
 --
 
 INSERT INTO `gh_empleados` (`id_auto`, `id_nit`, `id_empleado`, `id_sede`, `id_cargo`, `id_estado`, `nombres`, `apellidos`, `fecha_nacimiento`, `edad`, `ciudad`, `direccion`, `telefono`, `celular`, `correo`) VALUES
-(1, 1, 123123, 1, 1, 1, 'asda', 'asd', '1980-10-10', 38, 'asd', 'asda', 123, 123, 'asda@g.com');
+(1, 1, 123123, 1, 1, 1, 'asda', 'asd', '1980-10-10', 38, 'asd', 'asda', 123, 123, 'asda@g.com'),
+(2, 1, 62134235, 1, 2, 1, 'William', 'Gonzalez', '1984-10-10', 34, 'Bogota', 'Calle 68', 6234123, 4145153, 'willgon@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -196,7 +197,8 @@ CREATE TABLE `gh_personas` (
 --
 
 INSERT INTO `gh_personas` (`id`, `id_usuario`, `nombres`, `apellidos`, `direccion`, `telefono`, `rol`) VALUES
-(2, 1, 'Administrador', 'General', 'Administrador', 123, 1);
+(2, 1, 'Administrador', 'General', 'Administrador', 123, 1),
+(11, 62134235, 'William', 'Gonzalez', 'Calle 68', 6234123, 2);
 
 -- --------------------------------------------------------
 
@@ -238,7 +240,8 @@ CREATE TABLE `gh_sedes` (
 
 INSERT INTO `gh_sedes` (`id_auto`, `id_sede`, `nombre_sede`, `ciudad`, `direccion`, `telefono_fijo`) VALUES
 (1, 1, 'nombre', 'ciudad', 'dir', 23123),
-(2, 1, 'otra', 'otra', 'otra', 4124);
+(2, 1, 'otra', 'otra', 'otra', 4124),
+(3, 1, 'Sede X', 'Bogota', 'Cra 5A # 25-01', 4824136);
 
 -- --------------------------------------------------------
 
@@ -248,9 +251,11 @@ INSERT INTO `gh_sedes` (`id_auto`, `id_sede`, `nombre_sede`, `ciudad`, `direccio
 
 CREATE TABLE `gh_usuarios` (
   `id` int(11) NOT NULL,
+  `id_sede` int(11) NOT NULL,
   `id_usuario` int(15) DEFAULT NULL,
   `user` varchar(50) DEFAULT NULL,
   `pass` varchar(50) DEFAULT NULL,
+  `confirm` varchar(50) NOT NULL,
   `rol` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -258,8 +263,9 @@ CREATE TABLE `gh_usuarios` (
 -- Volcado de datos para la tabla `gh_usuarios`
 --
 
-INSERT INTO `gh_usuarios` (`id`, `id_usuario`, `user`, `pass`, `rol`) VALUES
-(1, 1, 'admin@gmail.com', '123456', 1);
+INSERT INTO `gh_usuarios` (`id`, `id_sede`, `id_usuario`, `user`, `pass`, `confirm`, `rol`) VALUES
+(1, 1, 1, 'admin@gmail.com', '123456', '123456', 1),
+(4, 1, 62134235, 'sedex@gmail.com', '123', '123', 2);
 
 -- --------------------------------------------------------
 
@@ -483,7 +489,7 @@ ALTER TABLE `gh_cargos`
 -- AUTO_INCREMENT de la tabla `gh_empleados`
 --
 ALTER TABLE `gh_empleados`
-  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `gh_estados`
 --
@@ -498,7 +504,7 @@ ALTER TABLE `gh_institucion`
 -- AUTO_INCREMENT de la tabla `gh_personas`
 --
 ALTER TABLE `gh_personas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `gh_roles`
 --
@@ -508,12 +514,12 @@ ALTER TABLE `gh_roles`
 -- AUTO_INCREMENT de la tabla `gh_sedes`
 --
 ALTER TABLE `gh_sedes`
-  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `gh_usuarios`
 --
 ALTER TABLE `gh_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
