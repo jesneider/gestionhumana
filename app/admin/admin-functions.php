@@ -55,7 +55,7 @@ function routingViews($debug = false)
 
 		$user_dir = ($_SESSION['user'] == '1') ? 'admin' : 'usuario';
 
-		$view = APP_PATH . "/views/" . $user_dir . "/options/" . $request_uri[1] . "_" . $request_uri[2] . ".php";
+		$view = APP_PATH . "/views/" . $user_dir . "/options/" . $request_uri[0] . "_" . $request_uri[1] . ".php";
 
 		if($debug)
 			print($view);
