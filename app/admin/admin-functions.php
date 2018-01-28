@@ -55,13 +55,13 @@ function routingViews($debug = false)
 
 		$user_dir = ($_SESSION['user'] == '1') ? 'admin' : 'usuario';
 
-		$view = APP_PATH . "/views/" . $user_dir . "/options/" . $request_uri[0] . "_" . $request_uri[1] . ".php";
+		$view = APP_PATH . "/views/" . $user_dir . "/options/" . $request_uri[1] . "_" . $request_uri[2] . ".php";
 
 		if($debug)
 			print($view);
 
 		if(!file_exists($view))
-			print('404 not found!');
+			print('404 no found!');
 		else
 			require_once $view;
 	}
@@ -83,4 +83,15 @@ function comboBox($table, $fields)
 		while($options = assoc($query_inst))
 			echo "<option value='". $options[$fields[0]] ."'>". $options[$fields[1]] ."</option>";
 	}
+}
+
+function creaDataTable($table, $fields, $callback)
+{
+	if(!isset($table) || empty($table))
+		return false;
+	
+	$query = query("SELECT ". $fields ." FROM " . $table);	
+
+	if(!is_string($callback))
+		return call_user_func($callback, $query);
 }

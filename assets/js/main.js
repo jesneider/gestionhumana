@@ -161,6 +161,8 @@ $(function(){
     App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");
     App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleado", "#btn-crea-empleado");
     App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");
-    App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
+	App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
+	
+	//$("#table-institucion").datatable();
 
 });

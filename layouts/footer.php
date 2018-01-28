@@ -17,6 +17,7 @@
 <script src="<?php echo BASE_APP; ?>assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!--<script src="<?php echo BASE_APP; ?>bower_components/datatables.net-bs/dataTables.bootstrap.js"></script>-->
 <!-- daterangepicker -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/moment/min/moment.min.js"></script>
 <script src="<?php echo BASE_APP; ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>

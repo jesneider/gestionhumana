@@ -3,7 +3,7 @@
 //abre la conexion
 function open()
 {
-	$con = mysqli_connect('localhost', 'root', '', 'academ');
+	$con = mysqli_connect('localhost', 'root', 'admin', 'academ');
 
 	if(!$con)
 		exit('Error : No se conecto a la BD');
