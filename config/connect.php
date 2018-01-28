@@ -41,6 +41,11 @@ function assoc($result)
 	return mysqli_fetch_assoc($result);
 }
 
+function affected_rows()
+{
+	return mysqli_affected_rows(open());
+}
+
 //validamos injection sql
 function esc_sql($str)
 {
@@ -48,25 +53,74 @@ function esc_sql($str)
 }
 
 //creamos una consulta para insertar
-/*function insert($table, $data, $auto = false, $debug = false)
+function insert($table, $data, $auto = false, $debug = false)
 {
 	if(!isset($table) || !isset($data))
 		return false;
 
-	$query = "INSERT INTO " $table;
+	$query = "INSERT INTO " . $table;
+	$fields = getFieldsFromTable($table);
 
-	if(count($data) <= 0)
+	$query .= " ( " . implode(", ", $fields) . " ) ";
+	
+	foreach ($data as $key => $value)
+		$values[] = "'" . $value . "'";
+
+	if($auto)
+		$query .= "VALUES ( '0', " . implode(", ", $values) . " )";
+	else
+		$query .= "VALUES (" . implode(", ", $values) . " )";
+
+	if($debug)
+		exit($query);
+
+	$sql = query($query);
+
+	$response = array();
+
+	if($sql > 0)
+		$response['status'] = true;
+	else
+		$response['status'] = false;
+
+	echo json_encode($response);
+}
+
+function getFieldsFromTable($table)
+{
+	$output = array();
+
+	$query = query("SHOW COLUMNS FROM $table");
+
+	if ( !$query )
 		return false;
 
-	if(is_array($data))
+	if ( rows( $query ) === 0 )
+		return false;
+
+	while ( $row = assoc( $query ) )
 	{
-		foreach ($data as $name => $value)
-			$values['values'] = $value;
+		$output[] = $row['Field'];
 	}
-}*/
+
+	free_result($query);
+
+	return $output;
+}
 
 //libera resultados de datos de una consulta
 function free_result($result)
 {
 	return mysqli_free_result($result);
+}
+
+function checksession()
+{
+	if(!isset($_SESSION['user']) || count($_SESSION) <= 0)
+	{
+		session_destroy();
+		?>
+		<script type="text/javascript">location.reload()</script>
+		<?php
+	}
 }

@@ -32,6 +32,7 @@
 <script src="<?php echo BASE_APP; ?>assets/plugins/iCheck/icheck.min.js"></script>
 <script src="<?php echo BASE_APP; ?>assets/js/adminlte.min.js"></script>
 <script src="<?php echo BASE_APP; ?>assets/plugins/pnotify/pnotify.custom.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo BASE_APP; ?>assets/js/pages/dashboard.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

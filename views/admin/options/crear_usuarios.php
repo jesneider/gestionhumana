@@ -17,7 +17,7 @@
 									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
 									<div class="col-sm-8">
 										<select name="nit_inst" class="form-control required">	
-											<?php comboBox('gh_instituciones', array('nit', 'nombre_institucion')); ?>
+											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
 										</select>
 									</div>
 								</div>

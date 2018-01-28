@@ -77,6 +77,10 @@ function comboBox($table, $fields)
 	if(rows($query_inst))
 		echo "<option value=''>Escoja una Opcion</option>";
 	else
+	{
+		echo "<option value=''>Escoja un opcion</option>";
+
 		while($options = assoc($query_inst))
 			echo "<option value='". $options[$fields[0]] ."'>". $options[$fields[1]] ."</option>";
+	}
 }

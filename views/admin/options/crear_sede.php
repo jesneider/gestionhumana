@@ -17,32 +17,32 @@
 									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
 									<div class="col-sm-8">
 										<select name="nit_inst" class="form-control required">	
-											<?php comboBox('gh_instituciones', array('nit', 'nombre_institucion')); ?>
+											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Nombre de Sede</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="nombre sede">
+										<input type="text" name="nombre_sede" class="form-control required" placeholder="nombre sede">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Ciudad</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="ciudad">
+										<input type="text" name="ciudad" class="form-control required" placeholder="ciudad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Direccion</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="direccion">
+										<input type="text" name="direccion" class="form-control required" placeholder="direccion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Telefono Fijo</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="telefono fijo">
+										<input type="text" name="telefono" class="form-control required" placeholder="telefono fijo">
 									</div>
 								</div>								
 							</div>							

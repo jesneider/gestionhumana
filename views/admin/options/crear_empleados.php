@@ -17,14 +17,14 @@
 									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
 									<div class="col-sm-8">
 										<select name="nit_inst" class="form-control required">	
-											<?php comboBox('gh_instituciones', array('nit', 'nombre_institucion')); ?>
+											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Cedula Empleado</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Cedula">
+										<input type="text" name="cedula_emp" class="form-control required" placeholder="Cedula">
 									</div>
 								</div>
 								<div class="form-group">
@@ -38,7 +38,7 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Cargo</label>
 									<div class="col-sm-8">
-										<select class="form-control required" name="sede">
+										<select class="form-control required" name="cargo">
 											<?php comboBox('gh_cargos', array('id_cargo', 'cargo')); ?>
 										</select>
 									</div>
@@ -46,7 +46,7 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Estado Actual</label>
 									<div class="col-sm-8">
-										<select class="form-control required" name="sede">
+										<select class="form-control required" name="estado">
 											<?php comboBox('gh_estados', array('id_estado', 'estado')); ?>
 										</select>
 									</div>
@@ -54,55 +54,55 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Nombres</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Nombres">
+										<input type="text" name="nombres" class="form-control required" placeholder="Nombres">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Apellidos</label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control required" placeholder="Apellidos">
+										<input type="text" name="apellidos" class="form-control required" placeholder="Apellidos">
 									</div>
 								</div>
                                 <div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Fecha Nacimiento</label>
 									<div class="col-sm-8">
-										<input id="fecha_nacimiento" type="text" class="form-control required datepicker" placeholder="Fecha Nacimiento">
+										<input id="fecha_nacimiento" name="fecha_nac" type="text" class="form-control required datepicker" placeholder="Fecha Nacimiento">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Edad</label>
 									<div class="col-sm-8">
-										<input id="edad_empleado" type="text" class="form-control required" placeholder="Edad">
+										<input id="edad_empleado" name="edad" type="text" class="form-control required" placeholder="edad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Ciudad</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="ciudad">
+										<input type="text" name="ciudad" class="form-control required" placeholder="ciudad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Direccion</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="direccion">
+										<input type="text" name="direccion" class="form-control required" placeholder="direccion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Telefono</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="telefono">
+										<input type="text" name="telefono" class="form-control required" placeholder="telefono">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Celular</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="celular">
+										<input type="text" name="celular" class="form-control required" placeholder="celular">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Correo</label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control required" placeholder="correo">
+										<input type="email" name="correo" class="form-control required" placeholder="correo">
 									</div>
 								</div>
 							</div>							

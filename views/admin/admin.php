@@ -20,16 +20,17 @@
         <ul class="nav navbar-nav">          
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo BASE_APP; ?>assets/img/admin-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo BASE_APP; ?>assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo getProfile($_SESSION['user']); ?></span>
             </a>
             <ul class="dropdown-menu">
               
               <li class="user-header">
-                <img src="<?php echo BASE_APP; ?>assets/img/admin-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo BASE_APP; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 <p>
                   <?php echo getProfile($_SESSION['user']); ?>
                   <small><?php echo getRol($_SESSION['rol']); ?></small>
+                  <span id="rol_user" style="display: none;"><?php echo $_SESSION['rol']; ?></span>
                 </p>
               </li>              
               <li class="user-footer">
@@ -53,7 +54,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo BASE_APP; ?>assets/img/admin-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo BASE_APP; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo getProfile($_SESSION['user']); ?></p>

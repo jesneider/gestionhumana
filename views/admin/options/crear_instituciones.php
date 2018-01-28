@@ -16,37 +16,37 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
 									<div class="col-sm-8">
-										<input type="number" class="form-control required" placeholder="NIT Institucion">
+										<input type="number" name="nit" class="form-control required" placeholder="NIT Institucion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Nombre de Institucion</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Nombre Institucion">
+										<input type="text" name="nombre" class="form-control required" placeholder="nombre institucion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Ciudad</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Ciudad">
+										<input type="text" name="ciudad" class="form-control required" placeholder="ciudad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Direccion</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Direccion">
+										<input type="text" name="direccion" class="form-control required" placeholder="direccion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Telefono Fijo</label>
 									<div class="col-sm-8">
-										<input type="number" class="form-control required" placeholder="Telefono Fijo">
+										<input type="number" name="telefono_fijo" class="form-control required" placeholder="telefono fijo">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Correo Institucional</label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control required" placeholder="Correo Institucional">
+										<input type="email" name="correo" class="form-control required" placeholder="Correo Institucional">
 									</div>
 								</div>								
 							</div>							

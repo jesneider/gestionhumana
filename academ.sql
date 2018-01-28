@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2018 a las 23:20:50
--- Versión del servidor: 5.6.16
--- Versión de PHP: 5.5.11
+-- Tiempo de generación: 28-01-2018 a las 04:02:05
+-- Versión del servidor: 10.1.9-MariaDB
+-- Versión de PHP: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `academ`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `activos`
 --
 
-CREATE TABLE IF NOT EXISTS `activos` (
-  `id` int(32) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `activos` (
+  `id` int(32) NOT NULL,
   `Tipo_Documento` varchar(100) CHARACTER SET latin1 NOT NULL,
   `Fecha_de_Ingreso` date NOT NULL,
   `Institucion` varchar(100) CHARACTER SET latin1 NOT NULL,
@@ -50,9 +50,8 @@ CREATE TABLE IF NOT EXISTS `activos` (
   `Poliza_de_Vida_Congregacion` varchar(10) CHARACTER SET latin1 NOT NULL,
   `DX_Enfermedad_Laboral` varchar(100) CHARACTER SET latin1 NOT NULL,
   `Quinquenios_Entregados` varchar(100) CHARACTER SET utf32 COLLATE utf32_spanish2_ci NOT NULL,
-  `Entrega_Quinquenio` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=3 ;
+  `Entrega_Quinquenio` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `activos`
@@ -68,11 +67,18 @@ INSERT INTO `activos` (`id`, `Tipo_Documento`, `Fecha_de_Ingreso`, `Institucion`
 -- Estructura de tabla para la tabla `gh_cargos`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_cargos` (
-  `id_cargo` int(20) NOT NULL AUTO_INCREMENT,
-  `cargo` int(30) NOT NULL,
-  PRIMARY KEY (`id_cargo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `gh_cargos` (
+  `id_cargo` int(20) NOT NULL,
+  `cargo` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `gh_cargos`
+--
+
+INSERT INTO `gh_cargos` (`id_cargo`, `cargo`) VALUES
+(1, 'Educador'),
+(2, 'Psicologo');
 
 -- --------------------------------------------------------
 
@@ -80,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `gh_cargos` (
 -- Estructura de tabla para la tabla `gh_contratacion`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_contratacion` (
+CREATE TABLE `gh_contratacion` (
   `id_auto` int(20) NOT NULL,
   `id_empleado` int(20) NOT NULL,
   `id_cargo` int(20) NOT NULL,
@@ -101,23 +107,30 @@ CREATE TABLE IF NOT EXISTS `gh_contratacion` (
 -- Estructura de tabla para la tabla `gh_empleados`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_empleados` (
-  `id_auto` int(20) NOT NULL AUTO_INCREMENT,
-  `id_empleado` int(20) NOT NULL,
+CREATE TABLE `gh_empleados` (
+  `id_auto` int(20) NOT NULL,
   `id_nit` int(20) NOT NULL,
+  `id_empleado` int(20) NOT NULL,
+  `id_sede` int(11) NOT NULL,
   `id_cargo` int(20) NOT NULL,
   `id_estado` int(11) NOT NULL,
-  `nombres` int(30) NOT NULL,
-  `apellidos` int(30) NOT NULL,
+  `nombres` varchar(45) NOT NULL,
+  `apellidos` varchar(45) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `edad` int(20) NOT NULL,
-  `ciudad` int(30) NOT NULL,
-  `direccion` int(30) NOT NULL,
+  `ciudad` varchar(45) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
   `telefono` int(20) NOT NULL,
   `celular` int(20) NOT NULL,
-  `correo` int(20) NOT NULL,
-  PRIMARY KEY (`id_auto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `correo` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `gh_empleados`
+--
+
+INSERT INTO `gh_empleados` (`id_auto`, `id_nit`, `id_empleado`, `id_sede`, `id_cargo`, `id_estado`, `nombres`, `apellidos`, `fecha_nacimiento`, `edad`, `ciudad`, `direccion`, `telefono`, `celular`, `correo`) VALUES
+(1, 1, 123123, 1, 1, 1, 'asda', 'asd', '1980-10-10', 38, 'asd', 'asda', 123, 123, 'asda@g.com');
 
 -- --------------------------------------------------------
 
@@ -125,11 +138,10 @@ CREATE TABLE IF NOT EXISTS `gh_empleados` (
 -- Estructura de tabla para la tabla `gh_estados`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_estados` (
-  `id_estado` int(11) NOT NULL AUTO_INCREMENT,
-  `estado` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+CREATE TABLE `gh_estados` (
+  `id_estado` int(11) NOT NULL,
+  `estado` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `gh_estados`
@@ -146,16 +158,22 @@ INSERT INTO `gh_estados` (`id_estado`, `estado`) VALUES
 -- Estructura de tabla para la tabla `gh_institucion`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_institucion` (
-  `id_auto` int(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gh_institucion` (
+  `id_auto` int(20) NOT NULL,
   `nit` int(20) NOT NULL,
   `nombre_institucion` varchar(50) NOT NULL,
   `ciudad` varchar(50) NOT NULL,
   `direccion` varchar(20) NOT NULL,
   `telefono_fijo` int(20) NOT NULL,
-  `correo_institucional` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_auto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `correo_institucional` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `gh_institucion`
+--
+
+INSERT INTO `gh_institucion` (`id_auto`, `nit`, `nombre_institucion`, `ciudad`, `direccion`, `telefono_fijo`, `correo_institucional`) VALUES
+(1, 1, 'OPAN', 'bogota', 'sdfdsf', 234324, 'ssd@gmil.com');
 
 -- --------------------------------------------------------
 
@@ -163,16 +181,15 @@ CREATE TABLE IF NOT EXISTS `gh_institucion` (
 -- Estructura de tabla para la tabla `gh_personas`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_personas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gh_personas` (
+  `id` int(11) NOT NULL,
   `id_usuario` int(15) DEFAULT NULL,
   `nombres` varchar(50) DEFAULT NULL,
   `apellidos` varchar(50) DEFAULT NULL,
   `direccion` varchar(100) DEFAULT NULL,
   `telefono` int(45) DEFAULT NULL,
-  `rol` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `rol` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `gh_personas`
@@ -187,11 +204,10 @@ INSERT INTO `gh_personas` (`id`, `id_usuario`, `nombres`, `apellidos`, `direccio
 -- Estructura de tabla para la tabla `gh_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rol` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE `gh_roles` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `gh_roles`
@@ -199,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `gh_roles` (
 
 INSERT INTO `gh_roles` (`id`, `rol`) VALUES
 (1, 'Administrador'),
-(2, 'Institucion');
+(2, 'Administrador Sede');
 
 -- --------------------------------------------------------
 
@@ -207,15 +223,22 @@ INSERT INTO `gh_roles` (`id`, `rol`) VALUES
 -- Estructura de tabla para la tabla `gh_sedes`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_sedes` (
-  `id_sede` int(20) NOT NULL AUTO_INCREMENT,
-  `id_nit` int(20) NOT NULL,
+CREATE TABLE `gh_sedes` (
+  `id_auto` int(20) NOT NULL,
+  `id_sede` int(20) NOT NULL,
   `nombre_sede` varchar(30) NOT NULL,
   `ciudad` varchar(30) NOT NULL,
   `direccion` varchar(20) NOT NULL,
-  `telefono_fijo` int(10) NOT NULL,
-  PRIMARY KEY (`id_sede`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `telefono_fijo` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `gh_sedes`
+--
+
+INSERT INTO `gh_sedes` (`id_auto`, `id_sede`, `nombre_sede`, `ciudad`, `direccion`, `telefono_fijo`) VALUES
+(1, 1, 'nombre', 'ciudad', 'dir', 23123),
+(2, 1, 'otra', 'otra', 'otra', 4124);
 
 -- --------------------------------------------------------
 
@@ -223,14 +246,13 @@ CREATE TABLE IF NOT EXISTS `gh_sedes` (
 -- Estructura de tabla para la tabla `gh_usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `gh_usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gh_usuarios` (
+  `id` int(11) NOT NULL,
   `id_usuario` int(15) DEFAULT NULL,
   `user` varchar(50) DEFAULT NULL,
   `pass` varchar(50) DEFAULT NULL,
-  `rol` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `rol` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `gh_usuarios`
@@ -245,15 +267,14 @@ INSERT INTO `gh_usuarios` (`id`, `id_usuario`, `user`, `pass`, `rol`) VALUES
 -- Estructura de tabla para la tabla `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
   `user` varchar(250) CHARACTER SET latin1 NOT NULL,
   `password` varchar(250) CHARACTER SET latin1 NOT NULL,
   `email` varchar(250) CHARACTER SET latin1 NOT NULL,
   `pasadmin` varchar(250) CHARACTER SET latin1 NOT NULL,
-  `rol` int(3) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=43 ;
+  `rol` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `login`
@@ -307,8 +328,8 @@ INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`) VALUE
 -- Estructura de tabla para la tabla `retirados`
 --
 
-CREATE TABLE IF NOT EXISTS `retirados` (
-  `id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `retirados` (
+  `id` int(100) NOT NULL,
   `Tipo_Documento` varchar(100) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `Fecha_de_Ingreso` date NOT NULL,
   `Institucion` varchar(100) COLLATE utf32_spanish2_ci NOT NULL,
@@ -335,9 +356,8 @@ CREATE TABLE IF NOT EXISTS `retirados` (
   `Motivo` text COLLATE utf32_spanish2_ci NOT NULL,
   `Fecha_de_Retiro` date NOT NULL,
   `Quinquenios_Entregados` varchar(100) COLLATE utf32_spanish2_ci NOT NULL,
-  `Entrega_Quinquenio` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci AUTO_INCREMENT=2 ;
+  `Entrega_Quinquenio` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `retirados`
@@ -352,16 +372,15 @@ INSERT INTO `retirados` (`id`, `Tipo_Documento`, `Fecha_de_Ingreso`, `Institucio
 -- Estructura de tabla para la tabla `retiradosdeyearsanteriores`
 --
 
-CREATE TABLE IF NOT EXISTS `retiradosdeyearsanteriores` (
-  `id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `retiradosdeyearsanteriores` (
+  `id` int(100) NOT NULL,
   `Tipo_Documento` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `Numero_Documento` int(100) NOT NULL,
   `Nombres` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `Apellidos` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `Fecha_de_Ingreso` date NOT NULL,
-  `Fecha_de_Retiro` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=2 ;
+  `Fecha_de_Retiro` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `retiradosdeyearsanteriores`
@@ -370,6 +389,146 @@ CREATE TABLE IF NOT EXISTS `retiradosdeyearsanteriores` (
 INSERT INTO `retiradosdeyearsanteriores` (`id`, `Tipo_Documento`, `Numero_Documento`, `Nombres`, `Apellidos`, `Fecha_de_Ingreso`, `Fecha_de_Retiro`) VALUES
 (1, 'Cedula', 123456, 'etret', 'ertret', '2017-11-10', '2017-11-10');
 
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `activos`
+--
+ALTER TABLE `activos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `gh_cargos`
+--
+ALTER TABLE `gh_cargos`
+  ADD PRIMARY KEY (`id_cargo`);
+
+--
+-- Indices de la tabla `gh_empleados`
+--
+ALTER TABLE `gh_empleados`
+  ADD PRIMARY KEY (`id_auto`);
+
+--
+-- Indices de la tabla `gh_estados`
+--
+ALTER TABLE `gh_estados`
+  ADD PRIMARY KEY (`id_estado`);
+
+--
+-- Indices de la tabla `gh_institucion`
+--
+ALTER TABLE `gh_institucion`
+  ADD PRIMARY KEY (`id_auto`);
+
+--
+-- Indices de la tabla `gh_personas`
+--
+ALTER TABLE `gh_personas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `gh_roles`
+--
+ALTER TABLE `gh_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `gh_sedes`
+--
+ALTER TABLE `gh_sedes`
+  ADD PRIMARY KEY (`id_auto`);
+
+--
+-- Indices de la tabla `gh_usuarios`
+--
+ALTER TABLE `gh_usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `retirados`
+--
+ALTER TABLE `retirados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `retiradosdeyearsanteriores`
+--
+ALTER TABLE `retiradosdeyearsanteriores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `activos`
+--
+ALTER TABLE `activos`
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `gh_cargos`
+--
+ALTER TABLE `gh_cargos`
+  MODIFY `id_cargo` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `gh_empleados`
+--
+ALTER TABLE `gh_empleados`
+  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `gh_estados`
+--
+ALTER TABLE `gh_estados`
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `gh_institucion`
+--
+ALTER TABLE `gh_institucion`
+  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `gh_personas`
+--
+ALTER TABLE `gh_personas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `gh_roles`
+--
+ALTER TABLE `gh_roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `gh_sedes`
+--
+ALTER TABLE `gh_sedes`
+  MODIFY `id_auto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `gh_usuarios`
+--
+ALTER TABLE `gh_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+--
+-- AUTO_INCREMENT de la tabla `retirados`
+--
+ALTER TABLE `retirados`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `retiradosdeyearsanteriores`
+--
+ALTER TABLE `retiradosdeyearsanteriores`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
