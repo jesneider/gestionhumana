@@ -129,6 +129,8 @@ $(function(){
 
 			if(serverResponse.status)
 				swal('Registro Exitoso', 'Todo ha salido bien', 'success');
+			else if(serverResponse.status == '0')
+				swal('Ha ocurrido un error', serverResponse.msg, 'error');
 			else
 				swal('Ha ocurrido un error', 'Algo ha ido mal', 'error');
 		},
@@ -136,8 +138,20 @@ $(function(){
 		clearform : function(form)
 		{
 			return $(form).trigger('reset');
-		}
+		},
 
+		confirmarUsuario : function(form, required, file, btn)
+		{
+			$(btn).click(function(){
+
+				var pone = $("#passone").val(), ptwo = $("#passtwo").val();
+
+				if(pone != ptwo)
+					App.mostrarMensaje('Error', 'Las contraseñas no coinciden', 'error', 2500);
+				else			
+					App.procesaFormulario(form, required, file, btn);
+			});
+		}
 	};
 
 	App.borrarMensajeError('#msg-error', 3000);
@@ -147,6 +161,6 @@ $(function(){
     App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");
     App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleado", "#btn-crea-empleado");
     App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");
-    App.submitFormularios("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
+    App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
 
 });

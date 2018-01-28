@@ -7,4 +7,4 @@ session_start();
 
 checksession();
 
-insert('gh_sedes', $_POST, true );
+echo insert('gh_sedes', $_POST, true );

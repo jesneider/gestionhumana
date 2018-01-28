@@ -83,7 +83,7 @@ function insert($table, $data, $auto = false, $debug = false)
 	else
 		$response['status'] = false;
 
-	echo json_encode($response);
+	return json_encode($response);
 }
 
 function getFieldsFromTable($table)

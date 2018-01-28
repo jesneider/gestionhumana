@@ -14,35 +14,43 @@
 						<div class="row">
 							<div class="col-lg-6">								
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
+									<label for="Dato" class="col-sm-4 control-label">Sede</label>
 									<div class="col-sm-8">
-										<select name="nit_inst" class="form-control required">	
-											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
+										<select name="id_sede" class="form-control required">	
+											<?php comboBox('gh_sedes', array('id_sede', 'nombre_sede')); ?>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Nombre de Usuario</label>
+									<label for="Dato" class="col-sm-4 control-label">Empleado</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control required" placeholder="Correo Electronico">
+										<select name="id_empleado" class="form-control required">	
+											<?php comboBox('gh_empleados', array('id_empleado', 'nombres')); ?>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="Dato" class="col-sm-4 control-label">Correo Electronico</label>
+									<div class="col-sm-8">
+										<input type="text" name="correo_electronico" class="form-control required" placeholder="Correo Electronico">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Contraseña</label>
 									<div class="col-sm-8">
-										<input type="password" class="form-control required" placeholder="Contraseña">
+										<input id="passone" type="password" name="passone" class="form-control required" placeholder="Contraseña">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Confirmar Contraseña</label>
 									<div class="col-sm-8">
-										<input type="password" class="form-control required" placeholder="Confirmar Contraseña">
+										<input id="passtwo" type="password" name="passtwo" class="form-control required" placeholder="Confirmar Contraseña">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Rol</label>
 									<div class="col-sm-8">
-										<select name="nit_inst" class="form-control required">	
+										<select name="id_rol" class="form-control required">	
 											<?php comboBox('gh_roles', array('id', 'rol')); ?>
 										</select>
 									</div>
