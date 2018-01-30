@@ -51,7 +51,7 @@ function routingViews($debug = false)
 	}
 	else
 	{
-		$request_uri = explode("/", $_GET['PATH']);
+		$request_uri = explode("/", $_GET['PATH']);		
 
 		$user_dir = ($_SESSION['user'] == '1') ? 'admin' : 'usuario';
 

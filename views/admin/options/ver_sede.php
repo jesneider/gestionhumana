@@ -15,23 +15,25 @@
                     <table id="table-institucion" class="table">
                         <thead>
                             <tr>
-                                <th>USUARIO</th>
-                                <th>CONTRASENA</th>                                
-                                <th>ROL</th>                                                               
+                                <th>NOMBRE</th>
+                                <th>CIUDAD</th>                                
+                                <th>DIRECCION</th>
+                                <th>TELEFONO</th>                                
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                            creaDataTable('gh_usuarios', '*', function($resource)
+                            creaDataTable('gh_sedes', '*', function($resource)
                             {
                                 while($rows = assoc($resource))
                                 {
-                                    echo "<tr id='". $rows['id'] ."'>
-                                            <td>". $rows['user'] ."</td>
-                                            <td>". $rows['pass'] ."</td>
-                                            <td>". $rows['rol'] ."</td>
-                                            <td>
+                                    echo "<tr id='". $rows['id_auto'] ."'>
+                                        <td>". $rows['nombre_sede'] ."</td>
+                                         <td>". $rows['ciudad'] ."</td>
+                                         <td>". $rows['direccion'] ."</td>
+                                         <td>". $rows['telefono_fijo'] ."</td>
+                                         <td>
                                          <div class='btn-group'>
                                             <button type='button' class='btn btn-default'><i class='fa fa-edit'></i></button>
                                             <button type='button' class='btn btn-default'><i class='fa fa-close'></i></button>                                            
