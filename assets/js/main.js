@@ -163,6 +163,6 @@ $(function(){
     App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");
 	App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
 	
-	//$("#table-institucion").datatable();
+	
 
 });
