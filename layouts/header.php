@@ -27,7 +27,9 @@
   <link rel="stylesheet" href="<?php echo BASE_APP; ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?php echo BASE_APP; ?>assets/plugins/iCheck/square/blue.css"/>
   <link rel="stylesheet" href="<?php echo BASE_APP; ?>assets/plugins/pnotify/pnotify.custom.min.css"/>
-  <!--<link rel="stylesheet" href="<?php echo BASE_APP; ?>bower_components/datatables.net-bs/dataTables.bootstrap.css"/>-->
+  <link rel="stylesheet" href="<?php echo BASE_APP; ?>assets/plugins/datatables/dataTables.bootstrap.css"/>
+
+  <link rel="stylesheet" href="<?php echo BASE_APP; ?>assets/css/main.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

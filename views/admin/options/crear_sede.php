@@ -51,7 +51,7 @@
 					<div class="box-footer">
 						<div class="row">
 							<div class="col-lg-4"><input type="reset" class="btn btn-danger" value="Cancelar"/></div>
-							<div class="col-lg-8"><input id="btn-crea-sede" type="submit" class="btn btn-info" value="Registar Institucion"/></div>
+							<div class="col-lg-8"><input id="btn-crea-sede" type="submit" class="btn btn-info" value="Registrar Sede"/></div>
 						</div>
 					</div>
 				</form>

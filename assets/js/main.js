@@ -11,6 +11,27 @@ $(function(){
     	format : 'yyyy-mm-dd'
     });
 
+    $("#table-institucion, #table-sedes").DataTable({
+    	language: {
+            "lengthMenu"	: "Mostrar _MENU_" ,
+            "zeroRecords"	: "No hay registros",
+            "info"			: "Mostrando _PAGE_ de _PAGES_",
+            "infoEmpty"		: "No hay registros ",
+            "infoFiltered"	: "(filtrado de _MAX_ total registros)",
+            "search" 		: "Buscar datos",
+            "oPaginate"		: {
+        		"sNext"		: "Siguiente",
+        		"sPrevious"	: "Anterior"
+            }
+        }    
+    });
+
+    $("input[type='search']").addClass('form-control');
+    $("select[name='table-institucion_length']").addClass('form-control');
+    $("select[name='table-sedes_length']").addClass('form-control');
+    $("#table-institucion_length").addClass('pull-left');
+    $("#table-sedes_length").addClass('pull-left');
+
     var App = {
 
 		borrarMensajeError : function(id, delay)
@@ -151,6 +172,69 @@ $(function(){
 				else			
 					App.procesaFormulario(form, required, file, btn);
 			});
+		},
+
+		editRecords : function(table, css, file, modal)
+		{
+			$(table).on('click', css, function(){
+
+				var data_record = $(this).parents('tr');
+				var id = $(data_record).data('id');
+
+				App.processRequest(id, file, css, modal);
+
+			});
+		},
+
+		processRequest : function(data, file, btn, modal)
+		{
+			var rol = ($("#rol_user").text() == "1") ? 'admin' : 'usuario';
+
+			$.ajax({
+				url 	: url + 'app/'+ rol +'/data/' + file + '.php',
+				type	: 'GET',
+				cache	: true,
+				data 	: { record : data },
+				beforeSend 	: function()
+				{
+					$(btn).attr('disabled', true);
+				},
+				success		: function(response)
+				{
+					var server = $.parseJSON(response);					
+
+					if(!server.status)
+						App.mostrarMensaje('Error', 'no se encontraron datos para este registro', 'error', 2500);
+					else
+					{
+						var data = server.data;
+						App.asignaData(data[0], modal);
+					}
+
+				},
+				complete	: function()
+				{
+					$(btn).attr('disabled', false);
+				}
+			});
+		},
+
+		asignaData : function(data, modal)
+		{
+			if(data.length <= 0)
+				this.mostrarMensaje('Error', 'no hay datos disponibles', 'error');
+			else
+			{
+				$(modal).modal('show');
+
+				var inputs = $(modal).find('.required');
+
+				for(var key in data)
+				{
+					if (data.hasOwnProperty(key))
+        				$("input[name='"+ key +"']").val(data[key]);
+				}
+			}
 		}
 	};
 
@@ -158,11 +242,21 @@ $(function(){
 
     App.calculaEdad();
 
-    App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");
+    //creacion
+    App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");    
     App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleado", "#btn-crea-empleado");
-    App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");
+    App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");    
+
 	App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
-	
-	
+
+	//edicion + modal
+	App.editRecords("#table-institucion", "button.edit-data-institucion", "get_instituciones", "#modal-edit-intitucion");	
+	App.editRecords("#table-sedes", "button.edit-data-sedes", "get_sedes", "#modal-edit-sedes");
+
+
+	//accion de edicion, falta por agregar la accion
+	App.submitFormularios("#frm-edita-institucion", ".required", "edita_institucion", "#btn-edita-institucion");
+	App.submitFormularios("#frm-edita-sedes", ".requires", "edita_sedes", "#btn-edita-sedes");
+
 
 });

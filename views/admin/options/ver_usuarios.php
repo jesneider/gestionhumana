@@ -1,6 +1,6 @@
 <section class="content-header">
 	<h1>
-		Resumen de Sedes
+		Resumen de Usuarios
 		<small>Listado General</small>
 	</h1>	
 </section>

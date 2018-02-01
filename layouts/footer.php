@@ -9,7 +9,7 @@
 <script src="<?php echo BASE_APP; ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/raphael/raphael.min.js"></script>
-<script src="<?php echo BASE_APP; ?>assets/bower_components/morris.js/morris.min.js"></script>
+<!--<script src="<?php echo BASE_APP; ?>assets/bower_components/morris.js/morris.min.js"></script>-->
 <!-- Sparkline -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -17,7 +17,7 @@
 <script src="<?php echo BASE_APP; ?>assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-<!--<script src="<?php echo BASE_APP; ?>bower_components/datatables.net-bs/dataTables.bootstrap.js"></script>-->
+<script src="<?php echo BASE_APP; ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?php echo BASE_APP; ?>assets/bower_components/moment/min/moment.min.js"></script>
 <script src="<?php echo BASE_APP; ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -35,7 +35,7 @@
 <script src="<?php echo BASE_APP; ?>assets/plugins/pnotify/pnotify.custom.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo BASE_APP; ?>assets/js/pages/dashboard.js"></script>
+<!--<script src="<?php echo BASE_APP; ?>assets/js/pages/dashboard.js"></script>-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo BASE_APP; ?>assets/js/demo.js"></script>

@@ -30,7 +30,7 @@
                             {
                                 while($rows = assoc($resource))
                                 {
-                                    echo "<tr id='". $rows['nit'] ."'>
+                                    echo "<tr data-id='". $rows['nit'] ."'>
                                         <td>". $rows['nit'] ."</td>
                                          <td>". $rows['nombre_institucion'] ."</td>
                                          <td>". $rows['ciudad'] ."</td>
@@ -39,7 +39,7 @@
                                          <td>". $rows['correo_institucional'] ."</td>
                                          <td>
                                          <div class='btn-group'>
-                                            <button type='button' class='btn btn-default'><i class='fa fa-edit'></i></button>
+                                            <button type='button' class='btn btn-default edit-data-institucion'><i class='fa fa-edit'></i></button>
                                             <button type='button' class='btn btn-default'><i class='fa fa-close'></i></button>                                            
                                             </div>
                                         </td>
@@ -55,3 +55,4 @@
         </div>        
     </div>
 </div>
+<?php include APP_PATH . "/views/admin/modals/edit_institucion.php"; ?>

@@ -12,7 +12,7 @@
             <div class="box-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <table id="table-institucion" class="table">
+                    <table id="table-sedes" class="table">
                         <thead>
                             <tr>
                                 <th>NOMBRE</th>
@@ -28,14 +28,14 @@
                             {
                                 while($rows = assoc($resource))
                                 {
-                                    echo "<tr id='". $rows['id_auto'] ."'>
+                                    echo "<tr data-id='". $rows['id_auto'] ."'>
                                         <td>". $rows['nombre_sede'] ."</td>
                                          <td>". $rows['ciudad'] ."</td>
                                          <td>". $rows['direccion'] ."</td>
                                          <td>". $rows['telefono_fijo'] ."</td>
                                          <td>
                                          <div class='btn-group'>
-                                            <button type='button' class='btn btn-default'><i class='fa fa-edit'></i></button>
+                                            <button type='button' class='btn btn-default edit-data-sedes'><i class='fa fa-edit'></i></button>
                                             <button type='button' class='btn btn-default'><i class='fa fa-close'></i></button>                                            
                                             </div>
                                         </td>
@@ -51,3 +51,5 @@
         </div>        
     </div>
 </div>
+
+<?php include APP_PATH . "/views/admin/modals/edit_sedes.php";?>

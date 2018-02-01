@@ -86,6 +86,33 @@ function insert($table, $data, $auto = false, $debug = false)
 	return json_encode($response);
 }
 
+function getDataFromTable($table, $fields = array(), $args, $debug = false)
+{
+	if(!isset($table) || count($fields) <= 0)
+		return false;
+
+	$campos = implode(", ", $fields);
+	$sql = "SELECT " . $campos . " FROM " . $table . " WHERE " . $args;
+
+	if($debug)
+		exit($sql);
+
+	$query = query($sql);
+
+	if(rows($query))
+		$output['status'] = false;
+	else	
+		while($rows = assoc($query))
+			$data[] = $rows;	
+
+	$output = array(
+		'status'	=> true,
+		'data'		=> $data
+	);
+
+	return json_encode($output);
+}
+
 function getFieldsFromTable($table)
 {
 	$output = array();
