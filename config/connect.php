@@ -113,6 +113,35 @@ function getDataFromTable($table, $fields = array(), $args, $debug = false)
 	return json_encode($output);
 }
 
+function editaRegistroOnTable($table, $values, $debug = false)
+{
+	if(!isset($table) || count($values) <= 0)
+		return false;
+
+	$query = "UPDATE " . $table . " SET ";
+	$fields = getFieldsFromTable($table);
+
+	$args = array();
+
+	foreach ($fields as $key => $value)	
+		$args[] .= $value . " = '" . $values[$value] . "'";	
+
+	$query .= implode(", ", $args);
+	$query .= " WHERE id_auto = " . $_POST['id_auto'];
+
+	if($debug)
+		exit($query);
+
+	$sql = query($query);
+
+	if($sql > 0)
+		$output['status'] = true;
+	else
+		$output['status'] = false;
+
+	return json_encode($output);
+}
+
 function getFieldsFromTable($table)
 {
 	$output = array();

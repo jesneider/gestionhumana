@@ -10,6 +10,7 @@
           <div class="modal-body">
             <div class="row">
               <div class="col-lg-12">                
+                <input id="id_table_sede" type="hidden" name="id_auto"/>
                 <div class="form-group">
                   <label for="Dato" class="col-sm-4 control-label">Nombre</label>
                   <div class="col-sm-8">

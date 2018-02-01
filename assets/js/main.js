@@ -11,7 +11,7 @@ $(function(){
     	format : 'yyyy-mm-dd'
     });
 
-    $("#table-institucion, #table-sedes").DataTable({
+    $("#table-institucion, #table-sedes, #table-empleados, #table-usuarios").DataTable({
     	language: {
             "lengthMenu"	: "Mostrar _MENU_" ,
             "zeroRecords"	: "No hay registros",
@@ -29,8 +29,12 @@ $(function(){
     $("input[type='search']").addClass('form-control');
     $("select[name='table-institucion_length']").addClass('form-control');
     $("select[name='table-sedes_length']").addClass('form-control');
+    $("select[name='table-empleados_length']").addClass('form-control');
+    $("select[name='table-usuarios_length']").addClass('form-control');
     $("#table-institucion_length").addClass('pull-left');
     $("#table-sedes_length").addClass('pull-left');
+    $("#table-empleados_length").addClass('pull-left');
+    $("#table-usuarios_length").addClass('pull-left');
 
     var App = {
 
@@ -42,15 +46,15 @@ $(function(){
 			}, delay);
 		},
 
-		calculaEdad : function()
+		calculaEdad : function(edad, date)
 		{
-			$("#edad_empleado").on('click', function()
+			$(edad).on('click', function()
 			{
-				if($("#fecha_nacimiento").val() == "")
+				if($(date).val() == "")
 					return false;
 				else
 				{
-					var get_date = $("#fecha_nacimiento").val().split("-");
+					var get_date = $(date).val().split("-");
 					var con_date = new Date(get_date[0], get_date[1] - 1, get_date[2]);
 					var cur_date = new Date();
 
@@ -182,7 +186,6 @@ $(function(){
 				var id = $(data_record).data('id');
 
 				App.processRequest(id, file, css, modal);
-
 			});
 		},
 
@@ -240,23 +243,25 @@ $(function(){
 
 	App.borrarMensajeError('#msg-error', 3000);
 
-    App.calculaEdad();
+    App.calculaEdad("#edad_empleado", "#fecha_nacimiento");
+    App.calculaEdad("#edad_empleado_edit", "#fecha_nacimiento_edit");
 
     //creacion
     App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");    
-    App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleado", "#btn-crea-empleado");
     App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");    
+    App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleados", "#btn-crea-empleados");
 
 	App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
 
 	//edicion + modal
 	App.editRecords("#table-institucion", "button.edit-data-institucion", "get_instituciones", "#modal-edit-intitucion");	
 	App.editRecords("#table-sedes", "button.edit-data-sedes", "get_sedes", "#modal-edit-sedes");
-
+    App.editRecords("#table-empleados", "button.edit-data-empleados", "get_empleados", "#modal-edit-empleados");
+    App.editRecords("#table-usuarios", "button.edit-data-usuarios", "get_usuarios", "#modal-edit-usuarios");
 
 	//accion de edicion, falta por agregar la accion
-	App.submitFormularios("#frm-edita-institucion", ".required", "edita_institucion", "#btn-edita-institucion");
+	App.submitFormularios("#frm-edita-institucion", ".required", "edit_institucion", "#btn-edita-institucion");
 	App.submitFormularios("#frm-edita-sedes", ".requires", "edita_sedes", "#btn-edita-sedes");
-
-
+    App.submitFormularios("#frm-edita-empleados", ".requires", "edita_empleados", "#btn-edita-empleados");
+    App.submitFormularios("#frm-edita-usuarios", ".requires", "edita_usuarios", "#btn-edita-usuarios");
 });

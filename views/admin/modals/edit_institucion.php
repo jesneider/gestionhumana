@@ -9,7 +9,8 @@
         <form id="frm-edita-institucion" class="frm-horizontal" action="javascript:" method="post" autocomplete="off">
           <div class="modal-body">
             <div class="row">
-              <div class="col-lg-12">                
+              <div class="col-lg-12">
+                <input id="id_table_institucion" type="hidden" name="id_auto"/>
                 <div class="form-group">
                   <label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
                   <div class="col-sm-8">

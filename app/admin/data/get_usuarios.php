@@ -8,7 +8,7 @@ session_start();
 checksession();
 
 echo getDataFromTable(
-    "gh_sedes",
-    array('id_auto', 'nombre_sede', 'ciudad', 'direccion', 'telefono_fijo'),
-    "id_auto = '". esc_sql($_GET['record']). "'"
+    "gh_usuarios",
+    array('user', 'pass','rol'),
+    "id_usuario = '". esc_sql($_GET['record']). "'"
 );

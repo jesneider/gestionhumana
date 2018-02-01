@@ -9,7 +9,7 @@ checksession();
 
 echo getDataFromTable(	 
 	"gh_institucion",
-	array('nit', 'nombre_institucion', 'ciudad', 'direccion', 'telefono_fijo', 'correo_institucional'),
+	array('id_auto', 'nit', 'nombre_institucion', 'ciudad', 'direccion', 'telefono_fijo', 'correo_institucional'),
 	"id_auto = '". esc_sql($_GET['record']) ."'"
 );
 
