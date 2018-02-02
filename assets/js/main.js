@@ -306,7 +306,7 @@ $(function(){
     //creacion
     App.submitFormularios("#frm-crear-institucion", ".required", "crea_institucion", "#btn-frm-registra-inst");    
     App.submitFormularios("#frm-crear-sede", ".required", "crea_sede", "#btn-crea-sede");    
-    App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleados", "#btn-crea-empleados");
+    App.submitFormularios("#frm-crear-empleados", ".required", "crea_empleado", "#btn-crea-empleados");
 
 	App.confirmarUsuario("#frm-crear-usuario", ".required", "crea_usuario", "#btn-crea-usuario");
 
