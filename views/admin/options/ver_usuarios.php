@@ -34,12 +34,12 @@
                                     <td>
                                     <div class='btn-group'>
                                         <button type='button' class='btn btn-default edit-data-usuarios'><i class='fa fa-edit'></i></button>
-                                        <button type='button' class='btn btn-default'><i class='fa fa-close'></i></button>                                            
+                                        <button type='button' class='btn btn-default delete-usuarios'><i class='fa fa-close'></i></button>                                            
                                     </div>
                                     </td>
                                     </tr>";
                                 }
-                            });                        
+                            },  "id DESC");
                             ?>
                             </tbody>
                        </table>

@@ -100,14 +100,14 @@ $(function(){
 			return status;
 		},
 
-		submitFormularios : function(form, required, file, btn)
+		submitFormularios : function(form, required, file, btn, modal)
 		{
 			$(btn).click(function(){
-				App.procesaFormulario(form, required, file, btn);
+				App.procesaFormulario(form, required, file, btn, modal);
 			})
 		},
 
-		procesaFormulario : function(form, required, file, btn)
+		procesaFormulario : function(form, required, file, btn, modal)
 		{
 			if(!this.validarFormularios(form, required))
 				return false;
@@ -138,6 +138,8 @@ $(function(){
 							App.evaluaRespuesta(response);
 							App.clearform(form);
 
+							$(modal).modal('hide');
+
 						},
 						complete : function()
 						{
@@ -153,7 +155,9 @@ $(function(){
 			var serverResponse = $.parseJSON(response);
 
 			if(serverResponse.status)
-				swal('Registro Exitoso', 'Todo ha salido bien', 'success');
+			{
+				swal({ title : "Bien!", text : serverResponse.msg, icon : "success" }).then(function(){location.reload()});
+			}
 			else if(serverResponse.status == '0')
 				swal('Ha ocurrido un error', serverResponse.msg, 'error');
 			else
@@ -238,6 +242,59 @@ $(function(){
         				$("input[name='"+ key +"']").val(data[key]);
 				}
 			}
+		},
+
+		procesoEliminar : function(table, css, file)
+		{
+			$(table).on('click', css, function(){
+
+				var data_record = $(this).parents('tr');
+				var id = $(data_record).data('id');
+
+				swal({
+					title: "Estas seguro ?",
+					text: "Deseas eliminar este registro",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+				}).then((willDelete) => {
+					if (willDelete)
+						App.eliminarRegistro(id, file, css)
+					else 						
+						swal("Has cancelado el proceso");
+				});
+
+			});
+		},
+
+		eliminarRegistro : function(id, file, btn)
+		{
+			var rol = ($("#rol_user").text() == "1") ? 'admin' : 'usuario';
+
+			$.ajax({
+				url 	: url + 'app/'+ rol +'/data/' + file + '.php',
+				type	: 'POST',
+				cache	: true,
+				data 	: { record : id },
+				beforeSend 	: function()
+				{
+					$(btn).attr('disabled', true);
+				},
+				success		: function(response)
+				{
+					var server = $.parseJSON(response);					
+
+					if(!server.status)
+						App.mostrarMensaje('Error', 'no se encontraron datos para este registro', 'error', 2500);
+					else
+						swal("Bien! El Registro ha sido eliminado satisfactoriamente!", { icon: "success", }).then(function(){ location.reload() });
+
+				},
+				complete	: function()
+				{
+					$(btn).attr('disabled', false);
+				}
+			});
 		}
 	};
 
@@ -260,8 +317,14 @@ $(function(){
     App.editRecords("#table-usuarios", "button.edit-data-usuarios", "get_usuarios", "#modal-edit-usuarios");
 
 	//accion de edicion, falta por agregar la accion
-	App.submitFormularios("#frm-edita-institucion", ".required", "edit_institucion", "#btn-edita-institucion");
-	App.submitFormularios("#frm-edita-sedes", ".requires", "edita_sedes", "#btn-edita-sedes");
-    App.submitFormularios("#frm-edita-empleados", ".requires", "edita_empleados", "#btn-edita-empleados");
-    App.submitFormularios("#frm-edita-usuarios", ".requires", "edita_usuarios", "#btn-edita-usuarios");
+	App.submitFormularios("#frm-edita-institucion", ".required", "edit_institucion", "#btn-edita-institucion", "#modal-edit-intitucion");
+	App.submitFormularios("#frm-edita-sedes", ".required", "edit_sedes", "#btn-edita-sedes", "#modal-edit-sedes");
+    App.submitFormularios("#frm-edita-empleados", ".required", "edit_empleados", "#btn-edita-empleados", "#modal-edit-empleados");
+    App.submitFormularios("#frm-edita-usuarios", ".requires", "edit_usuarios", "#btn-edita-usuarios", "#modal-edit-usuarios");
+
+    //Eliminar
+    App.procesoEliminar("#table-institucion", "button.delete-institucion", 'del_institucion');
+    App.procesoEliminar("#table-sedes", "button.delete-sedes", 'del_sedes');
+    App.procesoEliminar("#table-empleados", "button.delete-empleados", 'del_empleados');
+    App.procesoEliminar("#table-usuarios", "button.delete-usuarios", 'del_usuarios');
 });

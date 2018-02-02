@@ -46,12 +46,12 @@
                                          <td>
                                          <div class='btn-group'>
                                             <button type='button' class='btn btn-default edit-data-empleados'><i class='fa fa-edit'></i></button>
-                                            <button type='button' class='btn btn-default'><i class='fa fa-close'></i></button>                                            
+                                            <button type='button' class='btn btn-default delete-empleados'><i class='fa fa-close'></i></button>                                            
                                             </div>
                                         </td>
                                         </tr>";
                                 }
-                            });
+                            }, "id_empleado DESC");
                             ?>
                         </tbody>
                     </table>

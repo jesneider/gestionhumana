@@ -85,12 +85,12 @@ function comboBox($table, $fields)
 	}
 }
 
-function creaDataTable($table, $fields, $callback)
+function creaDataTable($table, $fields, $callback, $arg)
 {
 	if(!isset($table) || empty($table))
 		return false;
 	
-	$query = query("SELECT ". $fields ." FROM " . $table);	
+	$query = query("SELECT ". $fields ." FROM " . $table . " ORDER BY " . $arg);	
 
 	if(!is_string($callback))
 		return call_user_func($callback, $query);

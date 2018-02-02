@@ -79,7 +79,7 @@ function insert($table, $data, $auto = false, $debug = false)
 	$response = array();
 
 	if($sql > 0)
-		$response['status'] = true;
+		$response = array('status' => true, 'msg' => 'Datos guardados exitosamente');
 	else
 		$response['status'] = false;
 
@@ -105,10 +105,15 @@ function getDataFromTable($table, $fields = array(), $args, $debug = false)
 		while($rows = assoc($query))
 			$data[] = $rows;	
 
-	$output = array(
-		'status'	=> true,
-		'data'		=> $data
-	);
+	if(count($data) <= 0 || !isset($data))
+		$output['status'] = false;
+	else
+	{
+		$output = array(
+			'status'	=> true,
+			'data'		=> $data
+		);
+	}
 
 	return json_encode($output);
 }
@@ -123,11 +128,37 @@ function editaRegistroOnTable($table, $values, $debug = false)
 
 	$args = array();
 
-	foreach ($fields as $key => $value)	
-		$args[] .= $value . " = '" . $values[$value] . "'";	
+	foreach ($fields as $key => $value)
+	{
+		if(!isset($values[$value]))
+			continue;
+
+		$id[] = $value;
+		$args[] .= $value . " = '" . $values[$value] . "'";
+	}
 
 	$query .= implode(", ", $args);
-	$query .= " WHERE id_auto = " . $_POST['id_auto'];
+	$query .= " WHERE ". $id[0] ." = " . $_POST['id_auto'];
+
+	if($debug)
+		exit($query);
+
+	$sql = query($query);
+
+	if($sql > 0)
+		$output = array('status' => true, 'msg' => 'Registro editado con exito' );
+	else
+		$output['status'] = false;
+
+	return json_encode($output);
+}
+
+function deleteFromTable($table, $data, $arg, $debug = false)
+{
+	if(!isset($table) || count($data) <= 0)
+		return false;
+
+	$query = "DELETE FROM " . $table . " WHERE " . $arg . " = '" . $data['record'] . "'";
 
 	if($debug)
 		exit($query);
