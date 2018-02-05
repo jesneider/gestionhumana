@@ -282,7 +282,7 @@ $(function(){
 				},
 				success		: function(response)
 				{
-					var server = $.parseJSON(response);					
+					var server = $.parseJSON(response);		
 
 					if(!server.status)
 						App.mostrarMensaje('Error', 'no se encontraron datos para este registro', 'error', 2500);

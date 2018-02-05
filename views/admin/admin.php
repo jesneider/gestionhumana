@@ -58,7 +58,7 @@
         </div>
         <div class="pull-left info">
           <p><?php echo getProfile($_SESSION['user']); ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i>Administrador Online</a>
         </div>
       </div>     
       
