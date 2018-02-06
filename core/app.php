@@ -24,6 +24,7 @@ function app()
 			break;
 
 			case "2":
+				include APP_PATH . "/app/usuario/admin-usuario.php";
 				include APP_PATH . "/views/usuario/usuario.php";
 			break;
 
