@@ -95,3 +95,18 @@ function creaDataTable($table, $fields, $callback, $arg)
 	if(!is_string($callback))
 		return call_user_func($callback, $query);
 }
+
+function obtenerPais($id)
+{
+	if(!isset($id) || empty($id))
+		return false;
+
+	$get = query("SELECT pais FROM gh_paises WHERE id_pais = '".$id."'");
+
+	if(rows($get))
+		echo "N/A";
+	else
+		$result = assoc($get);
+
+	return $result['pais'];
+}

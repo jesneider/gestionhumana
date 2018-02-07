@@ -26,15 +26,7 @@
 									<div class="col-sm-8">
 										<input type="text" name="cedula_emp" class="form-control required" placeholder="Cedula">
 									</div>
-								</div>
-								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Sede</label>
-									<div class="col-sm-8">
-										<select class="form-control required" name="sede">
-											<?php comboBox('gh_sedes', array('id_auto', 'nombre_sede')); ?>
-										</select>
-									</div>
-								</div>
+								</div>								
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Cargo</label>
 									<div class="col-sm-8">

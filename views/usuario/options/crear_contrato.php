@@ -1,6 +1,6 @@
 <section class="content-header">
 	<h1>
-		Registraro Datos de Contratacion
+		Registrar Datos de Contratacion
 		<small>Registre los datos generales de contratacion</small>
 	</h1>	
 </section>
@@ -14,7 +14,7 @@
 						<div class="row">
 							<div class="col-lg-6">														
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Sede</label>
+									<label for="Dato" class="col-sm-4 control-label">Empleado</label>
 									<div class="col-sm-8">
 										<select class="form-control required" name="sede">
 											<?php comboBox('gh_empleados', array('id_empleado', 'nombres')); ?>
@@ -38,37 +38,37 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Nombres</label>
+									<label for="Dato" class="col-sm-4 control-label">Salario base Cotizacion</label>
 									<div class="col-sm-8">
-										<input type="text" name="nombres" class="form-control required" placeholder="Nombres">
+										<input type="text" name="salario" class="form-control required" placeholder="Nombres">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Apellidos</label>
+									<label for="Dato" class="col-sm-4 control-label">EPS</label>
 									<div class="col-sm-8">
-										<input type="text" name="apellidos" class="form-control required" placeholder="Apellidos">
+										<input type="text" name="EPS" class="form-control required" placeholder="Apellidos">
 									</div>
 								</div>
                                 <div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Fecha Nacimiento</label>
+									<label for="Dato" class="col-sm-4 control-label">AFP</label>
 									<div class="col-sm-8">
-										<input id="fecha_nacimiento" name="fecha_nac" type="text" class="form-control required datepicker" placeholder="Fecha Nacimiento">
+										<input id="fecha_nacimiento" name="AFP" type="text" class="form-control required datepicker" placeholder="Fecha Nacimiento">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Edad</label>
+									<label for="Dato" class="col-sm-4 control-label">Fondo Cesantias</label>
 									<div class="col-sm-8">
-										<input id="edad_empleado" name="edad" type="text" class="form-control required" placeholder="edad">
+										<input id="edad_empleado" name="cesantias" type="text" class="form-control required" placeholder="edad">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Ciudad</label>
+									<label for="Dato" class="col-sm-4 control-label">Caja Compensacion</label>
 									<div class="col-sm-8">
 										<input type="text" name="ciudad" class="form-control required" placeholder="ciudad">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Direccion</label>
+									<label for="Dato" class="col-sm-4 control-label">Poliza de Vida</label>
 									<div class="col-sm-8">
 										<input type="text" name="direccion" class="form-control required" placeholder="direccion">
 									</div>

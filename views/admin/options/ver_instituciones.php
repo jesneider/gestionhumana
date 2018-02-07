@@ -14,13 +14,14 @@
                 <div class="col-lg-12">
                     <table id="table-institucion" class="table">
                         <thead>
-                            <tr>
+                            <tr>                                
                                 <th>NIT</th>
                                 <th>NOMBRE</th>
                                 <th>CIUDAD</th>
                                 <th>DIRECCION</th>
                                 <th>TELEFONO</th>
                                 <th>CORREO</th>
+                                <th>PAIS</th>
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>
@@ -37,6 +38,7 @@
                                          <td>". $rows['direccion'] ."</td>
                                          <td>". $rows['telefono_fijo'] ."</td>
                                          <td>". $rows['correo_institucional'] ."</td>
+                                         <td>". $rows['nombre_pais'] ."</td>
                                          <td>
                                          <div class='btn-group'>
                                             <button type='button' class='btn btn-default edit-data-institucion'><i class='fa fa-edit'></i></button>

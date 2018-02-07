@@ -12,11 +12,19 @@
 				<form id="frm-crear-institucion" class="form-horizontal" action="javascript:" method="post" autocomplete="off">
 					<div class="box-body">
 						<div class="row">
-							<div class="col-lg-6">								
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="Dato" class="col-sm-4 control-label">Pais</label>
+									<div class="col-sm-8">
+										<select class="form-control required" name="cargo">
+											<?php comboBox('gh_paises', array('pais', 'pais')); ?>
+										</select>
+									</div>
+								</div>								
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
 									<div class="col-sm-8">
-										<input type="number" name="nit" class="form-control required" placeholder="NIT Institucion">
+										<input type="text" name="nit" class="form-control required" placeholder="NIT Institucion">
 									</div>
 								</div>
 								<div class="form-group">

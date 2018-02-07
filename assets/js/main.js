@@ -239,7 +239,10 @@ $(function(){
 				for(var key in data)
 				{
 					if (data.hasOwnProperty(key))
-        				$("input[name='"+ key +"']").val(data[key]);
+					{
+						$("select[name='"+ key +"']").empty().append('<option value="'+key+'">'+ data[key] +'</option>');
+        				$("input[name='"+ key +"']").val(data[key]);        				
+					}
 				}
 			}
 		},

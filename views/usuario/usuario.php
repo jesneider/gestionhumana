@@ -91,7 +91,7 @@
         </li>                    
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-gears"></i>
+            <i class="fa fa-handshake-o"></i>
             <span>Datos de Contratacion</span>
             <span class="pull-right-container"></span>
           </a>

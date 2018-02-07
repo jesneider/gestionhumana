@@ -12,9 +12,17 @@
               <div class="col-lg-12">
                 <input id="id_table_institucion" type="hidden" name="id_auto"/>
                 <div class="form-group">
+                  <label for="Dato" class="col-sm-4 control-label">Pais</label>
+                  <div class="col-sm-8">
+                    <select class="form-control required mod-margin-bottom" name="nombre_pais">
+                      <?php comboBox('gh_paises', array('id_pais', 'pais')); ?>
+                    </select>
+                  </div>
+                </div>                
+                <div class="form-group">
                   <label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
                   <div class="col-sm-8">
-                    <input type="number" name="nit" class="form-control required mod-margin-bottom" placeholder="NIT Institucion">
+                    <input type="text" name="nit" class="form-control required mod-margin-bottom" placeholder="NIT Institucion">
                   </div>
                 </div>
                 <div class="form-group">

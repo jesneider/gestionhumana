@@ -86,18 +86,7 @@
             <li><a href="<?php echo BASE_APP; ?>crear/instituciones"><i class="fa fa-plus"></i> Crear</a></li>
             <li><a href="<?php echo BASE_APP; ?>ver/instituciones"><i class="fa fa-list"></i> Listar</a></li>
           </ul>
-        </li>        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-building"></i>
-            <span>Sedes</span>
-            <span class="pull-right-container"></span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo BASE_APP; ?>crear/sede"><i class="fa fa-plus"></i> Crear</a></li>
-            <li><a href="<?php echo BASE_APP; ?>ver/sede"><i class="fa fa-list"></i> Listar</a></li>
-          </ul>
-        </li>        
+        </li>                
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i>
