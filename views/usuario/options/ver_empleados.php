@@ -45,8 +45,9 @@
                                          <td>". $rows['correo'] ."</td>
                                          <td>
                                          <div class='btn-group'>
-                                            <button type='button' class='btn btn-default edit-data-empleados'><i class='fa fa-edit'></i></button>
-                                            <button type='button' class='btn btn-default delete-empleados'><i class='fa fa-close'></i></button>                                            
+                                            <button type='button' class='btn btn-default edit-data-empleados' data-toggle='tooltip' data-original-title='Editar'><i class='fa fa-edit'></i></button>
+                                            <button type='button' class='btn btn-default see-data-empleados' data-toggle='tooltip' data-original-title='Detalles'><i class='fa fa-file'></i></button>
+                                            <button type='button' class='btn btn-default delete-empleados' data-toggle='tooltip' data-original-title='Eliminar'><i class='fa fa-close'></i></button>                                            
                                             </div>
                                         </td>
                                         </tr>";

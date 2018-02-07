@@ -89,6 +89,17 @@
             <li><a href="<?php echo BASE_APP; ?>ver/empleados"><i class="fa fa-list"></i> Listar</a></li>
           </ul>
         </li>                    
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-gears"></i>
+            <span>Datos de Contratacion</span>
+            <span class="pull-right-container"></span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo BASE_APP; ?>crear/contrato"><i class="fa fa-plus"></i> Crear</a></li>
+            <li><a href="<?php echo BASE_APP; ?>ver/contrato"><i class="fa fa-list"></i> Listar</a></li>
+          </ul>
+        </li>                    
       </ul>
     </section>
     <!-- /.sidebar -->
