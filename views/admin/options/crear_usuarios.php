@@ -14,7 +14,7 @@
 						<div class="row">
 							<div class="col-lg-6">								
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Sede</label>
+									<label for="Dato" class="col-sm-4 control-label">Institucion</label>
 									<div class="col-sm-8">
 										<select name="id_sede" class="form-control required">	
 											<?php comboBox('gh_sedes', array('id_sede', 'nombre_sede')); ?>

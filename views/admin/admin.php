@@ -79,6 +79,16 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-building-o"></i>
+            <span>Colombia</span>
+            <span class="pull-right-container"></span>
+          </a>
+          <ul class="treeview-menu">            
+            <li><a href="<?php echo BASE_APP; ?>ver/colombia"><i class="fa fa-list"></i> Instituciones</a></li>
+          </ul>
+        </li> 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-building-o"></i>
             <span>Instituciones</span>
             <span class="pull-right-container"></span>
           </a>

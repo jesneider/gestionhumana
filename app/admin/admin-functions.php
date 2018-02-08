@@ -90,7 +90,10 @@ function creaDataTable($table, $fields, $callback, $arg)
 	if(!isset($table) || empty($table))
 		return false;
 	
-	$query = query("SELECT ". $fields ." FROM " . $table . " ORDER BY " . $arg);	
+	if(count($arg) > 0)	
+		$query = query("SELECT ". $fields ." FROM " . $table . " WHERE " . $arg[0] . " = '" . $arg[1] . "'");	
+	else
+		$query = query("SELECT ". $fields ." FROM " . $table . " ORDER BY " . $arg);
 
 	if(!is_string($callback))
 		return call_user_func($callback, $query);
