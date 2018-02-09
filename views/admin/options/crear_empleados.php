@@ -14,7 +14,7 @@
 						<div class="row">
 							<div class="col-lg-6">					
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
+									<label for="Dato" class="col-sm-4 control-label">Institucion</label>
 									<div class="col-sm-8">
 										<select name="nit_inst" class="form-control required">	
 											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
@@ -42,6 +42,42 @@
 											<?php comboBox('gh_estados', array('id_estado', 'estado')); ?>
 										</select>
 									</div>
+								</div>
+								<div class="form-group add-fecha-activo" style="display: none;">
+									<label for="Dato" class="col-sm-4 control-label">Fecha Ingreso</label>
+									<div class="col-sm-8">
+										<input type="text" name="nombres" class="form-control required" placeholder="Nombres">
+									</div>
+								</div>
+								<div class="form-group add-fecha-retirado" style="display: none;">
+									<label for="Dato" class="col-sm-4 control-label">Fechas</label>
+									<div class="row">
+										<div class="col-lg-3">
+										<input type="text" class="form-control required datepicker" placeholder="Ingreso">
+										</div>
+										<div class="col-lg-3">
+										<input type="text" class="form-control required datepicker" placeholder="Retiro">
+										</div>
+									</div>
+								</div>
+								<div class="form-group add-fecha-retirado-anteriores" style="display: none;">
+									<label for="Dato" class="col-sm-4 control-label">Fechas</label>
+									<div class="row">
+										<div class="col-lg-3">
+										<input type="text" class="form-control required datepicker" placeholder="Ingreso">
+										</div>
+										<div class="col-lg-3">
+										<input type="text" class="form-control required datepicker" placeholder="Retiro">
+										</div>
+									</div>									
+								</div>
+								<div class="form-group add-fecha-retirado-motivo" style="display: none;">
+									<label for="Dato" class="col-sm-4 control-label">Motivo</label>
+									<div class="row">
+										<div class="col-sm-7">
+											<textarea class="form-control" name="motivo"></textarea>
+										</div>										
+									</div>									
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Nombres</label>

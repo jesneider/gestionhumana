@@ -14,7 +14,7 @@
 						<div class="row">
 							<div class="col-lg-6">					
 								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">NIT Institucion</label>
+									<label for="Dato" class="col-sm-4 control-label">Institucion</label>
 									<div class="col-sm-8">
 										<select name="nit_inst" class="form-control required">	
 											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
@@ -27,14 +27,7 @@
 										<input type="text" name="cedula_emp" class="form-control required" placeholder="Cedula">
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="Dato" class="col-sm-4 control-label">Sede</label>
-									<div class="col-sm-8">
-										<select class="form-control required" name="sede">
-											<?php comboBox('gh_sedes', array('id_auto', 'nombre_sede')); ?>
-										</select>
-									</div>
-								</div>
+								
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Cargo</label>
 									<div class="col-sm-8">
@@ -72,37 +65,37 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Edad</label>
 									<div class="col-sm-8">
-										<input id="edad_empleado" name="edad" type="text" class="form-control required" placeholder="edad">
+										<input id="edad_empleado" name="edad" type="text" class="form-control required" placeholder="Edad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Ciudad</label>
 									<div class="col-sm-8">
-										<input type="text" name="ciudad" class="form-control required" placeholder="ciudad">
+										<input type="text" name="ciudad" class="form-control required" placeholder="Ciudad">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Direccion</label>
 									<div class="col-sm-8">
-										<input type="text" name="direccion" class="form-control required" placeholder="direccion">
+										<input type="text" name="direccion" class="form-control required" placeholder="Direccion">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Telefono</label>
 									<div class="col-sm-8">
-										<input type="text" name="telefono" class="form-control required" placeholder="telefono">
+										<input type="text" name="telefono" class="form-control required" placeholder="Telefono">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Celular</label>
 									<div class="col-sm-8">
-										<input type="text" name="celular" class="form-control required" placeholder="celular">
+										<input type="text" name="celular" class="form-control required" placeholder="Celular">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Correo</label>
 									<div class="col-sm-8">
-										<input type="email" name="correo" class="form-control required" placeholder="correo">
+										<input type="email" name="correo" class="form-control required" placeholder="Correo Electronico">
 									</div>
 								</div>
 							</div>							

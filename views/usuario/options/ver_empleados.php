@@ -21,6 +21,7 @@
                                 <th>NACIMIENTO</th>
                                 <th>EDAD</th>
                                 <th>CIUDAD</th>
+                                <th>DIRECCION</th>
                                 <th>TELEFONO</th>
                                 <th>CELULAR</th>
                                 <th>CORREO</th>
@@ -40,6 +41,7 @@
                                          <td>". $rows['fecha_nacimiento'] ."</td>
                                          <td>". $rows['edad'] ."</td>
                                          <td>". $rows['ciudad'] ."</td>
+                                         <td>". $rows['direccion'] ."</td>
                                          <td>". $rows['telefono'] ."</td>
                                          <td>". $rows['celular'] ."</td>
                                          <td>". $rows['correo'] ."</td>

@@ -41,8 +41,8 @@
                                          <td>". $rows['nombre_pais'] ."</td>
                                          <td>
                                          <div class='btn-group'>
-                                            <button type='button' class='btn btn-default edit-data-institucion'><i class='fa fa-edit'></i></button>
-                                            <button type='button' class='btn btn-default delete-institucion'><i class='fa fa-close'></i></button>                                            
+                                            <button type='button' class='btn btn-default edit-data-institucion' data-toggle='tooltip' data-original-title='Editar'><i class='fa fa-edit'></i></button>
+                                            <button type='button' class='btn btn-default delete-institucion' data-toggle='tooltip' data-original-title='Eliminar'><i class='fa fa-close'></i></button>                                            
                                             </div>
                                         </td>
                                         </tr>";

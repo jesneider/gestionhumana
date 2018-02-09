@@ -81,27 +81,20 @@
             <i class="fa fa-building-o"></i>
             <span>Colombia</span>
             <span class="pull-right-container"></span>
-          </a>
-          <ul class="treeview-menu">            
-            <li><a href="<?php echo BASE_APP; ?>ver/colombia"><i class="fa fa-list"></i> Instituciones</a></li>
-          </ul>
-        </li> 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-building-o"></i>
-            <span>Instituciones</span>
-            <span class="pull-right-container"></span>
+            <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo BASE_APP; ?>crear/instituciones"><i class="fa fa-plus"></i> Crear</a></li>
-            <li><a href="<?php echo BASE_APP; ?>ver/instituciones"><i class="fa fa-list"></i> Listar</a></li>
+            <li><a href="<?php echo BASE_APP; ?>crear/instituciones"><i class="fa fa-plus"></i>Crear Institucion</a></li>        
+            <li><a href="<?php echo BASE_APP; ?>ver/colombia"><i class="fa fa-list"></i>Listar Instituciones</a></li> 
           </ul>
-        </li>                
+        </li> 
+                       
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i>
             <span>Empleados</span>
             <span class="pull-right-container"></span>
+            <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo BASE_APP; ?>crear/empleados"><i class="fa fa-plus"></i> Crear</a></li>
