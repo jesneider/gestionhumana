@@ -46,7 +46,7 @@
 								<div class="form-group add-fecha-activo" style="display: none;">
 									<label for="Dato" class="col-sm-4 control-label">Fecha Ingreso</label>
 									<div class="col-sm-8">
-										<input type="text" name="nombres" class="form-control required" placeholder="Nombres">
+										<input type="text" name="fecha_ingreso" class="form-control required datepicker" placeholder="Fecha de Ingreso">
 									</div>
 								</div>
 								<div class="form-group add-fecha-retirado" style="display: none;">

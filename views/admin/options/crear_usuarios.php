@@ -16,35 +16,35 @@
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Institucion</label>
 									<div class="col-sm-8">
-										<select name="id_sede" class="form-control required">	
-											<?php comboBox('gh_sedes', array('id_sede', 'nombre_sede')); ?>
+										<select name="nit" class="form-control required">	
+											<?php comboBox('gh_institucion', array('nit', 'nombre_institucion')); ?>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Empleado</label>
 									<div class="col-sm-8">
-										<select name="id_empleado" class="form-control required">	
-											<?php comboBox('gh_empleados', array('id_empleado', 'nombres')); ?>
+										<select name="id_usuario" class="form-control required">	
+											<?php comboBox('gh_personas', array('id_usuario', 'nombres')); ?>
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Correo Electronico</label>
 									<div class="col-sm-8">
-										<input type="text" name="correo_electronico" class="form-control required" placeholder="Correo Electronico">
+										<input type="text" name="user" class="form-control required" placeholder="Correo Electronico">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Contraseña</label>
 									<div class="col-sm-8">
-										<input id="passone" type="password" name="passone" class="form-control required" placeholder="Contraseña">
+										<input id="passone" type="password" name="pass" class="form-control required" placeholder="Contraseña">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="Dato" class="col-sm-4 control-label">Confirmar Contraseña</label>
 									<div class="col-sm-8">
-										<input id="passtwo" type="password" name="passtwo" class="form-control required" placeholder="Confirmar Contraseña">
+										<input id="passtwo" type="password" name="confirm" class="form-control required" placeholder="Confirmar Contraseña">
 									</div>
 								</div>
 								<div class="form-group">
@@ -61,7 +61,7 @@
 					<div class="box-footer">
 						<div class="row">
 							<div class="col-lg-4"><input type="reset" class="btn btn-danger" value="Cancelar"/></div>
-							<div class="col-lg-8"><input id="btn-crea-usuario" type="submit" class="btn btn-info" value="Registrar Institucion"/></div>
+							<div class="col-lg-8"><input id="btn-crea-usuario" type="submit" class="btn btn-info" value="Registrar Usuario"/></div>
 						</div>
 					</div>
 				</form>
