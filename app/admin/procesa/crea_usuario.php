@@ -13,7 +13,7 @@ else
 {
 	$output = array();
 
-	$get_personas = query("SELECT * FROM gh_empleados WHERE id_empleado = '". esc_sql($_POST['id_empleado']) ."'");
+	$get_personas = query("SELECT * FROM gh_personas WHERE id_usuario = '". esc_sql($_POST['id_usuario']) ."'");
 
 	if(rows($get_personas))
 	{
@@ -25,7 +25,7 @@ else
 		$result_persona = assoc($get_personas);
 
 		$data_persona = array(
-			'id_usuario'	=> $result_persona['id_empleado'],
+			'id_usuario'	=> $result_persona['id_usuario'],
 			'nombres'		=> $result_persona['nombres'],
 			'apellidos'		=> $result_persona['apellidos'],
 			'direccion'		=> $result_persona['direccion'],
